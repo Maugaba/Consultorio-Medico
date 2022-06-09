@@ -30,12 +30,21 @@ namespace Consultorio_Medico
             sintomas.Descripcion_Sintoma = TextBoxDescripcionSintoma.Text;
             listsintomas.Add(sintomas);
             Guardar_Json();
+            TextBoxCodigoSintoma.Text = " ";
+            TextBoxNombreSintoma.Text = " ";
+            TextBoxDescripcionSintoma.Text = " ";
+            Response.Write("<script>alert('Sintoma agregado con exito')</script>");
         }
         void Guardar_Json()
         {
             string json = JsonConvert.SerializeObject(listsintomas);
             string archivo = Server.MapPath("Sintomas.json");
             File.WriteAllText(archivo, json);
+        }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+
         }
     }
 }
